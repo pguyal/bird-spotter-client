@@ -10,11 +10,13 @@ const authEvents = require('./auth/events')
 
 $(() => {
   // Initial hidden auth elements
+  $('#sign-out').hide()
   $('#change-password').hide()
   $('#change-pw-btn').hide()
   // User Auth Events
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#sign-out').on('click', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#change-pw-btn').on('click', authEvents.onChangePasswordBtn)
 })
