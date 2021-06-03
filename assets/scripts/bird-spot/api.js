@@ -14,10 +14,21 @@ const createBirdSpot = function (formData) {
 }
 
 // INDEX (get) request specifically for user's bird spots
-const viewUserBirdSpot = function () {
+const viewUserBirdSpots = function () {
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/birds',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+// INDEX (get) request specifically for ALL user's bird spots
+const viewAllBirdSpots = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/birds-all',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
@@ -37,7 +48,8 @@ const destroyBirdSpot = function (id) {
 
 module.exports = {
   createBirdSpot,
-  viewUserBirdSpot,
+  viewUserBirdSpots,
+  viewAllBirdSpots,
   destroyBirdSpot
   // updateBirdSpot
 }

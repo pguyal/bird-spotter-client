@@ -11,12 +11,13 @@ const onCreateBirdSpotSuccess = function (response) {
   $('form').trigger('reset')
 }
 
-const onViewUserBirdSpotSuccess = function (response) {
+const onViewUserBirdSpotsSuccess = function (response) {
   $('#bird-spot-message').text('Here are your created Bird Sightings:')
   $('#create-birdspot-btn').hide()
   $('#sign-out').hide()
   $('#change-pw-btn').hide()
-  $('#view-user-birdspot').hide()
+  $('#view-user-birdspots').hide()
+  $('#view-all-birdspots').hide()
   const birds = response.birds
   let birdsHtml = ''
   birds.forEach(bird => {
@@ -29,6 +30,29 @@ const onViewUserBirdSpotSuccess = function (response) {
     <button class='birdspots-destroy-dynamic' data-id=${bird._id}>
     Delete
     </button>
+    `
+  })
+  $('#birdspot-display').html(birdsHtml)
+}
+
+const onViewAllBirdSpotsSuccess = function (response) {
+  $('#bird-spot-message').text('Here is a list of all Bird Sightings:')
+  $('#create-birdspot-btn').hide()
+  $('#sign-out').hide()
+  $('#change-pw-btn').hide()
+  $('#view-all-birdspots').hide()
+  $('#view-user-birdspots').hide()
+  const birds = response.birds
+  let birdsHtml = ''
+  birds.forEach(bird => {
+    console.log(bird)
+    birdsHtml += `
+    <hr>
+    <img src="${bird.image}" alt ="${bird.name}" style="width:150px" />
+    <h4>${bird.name}</h4>
+    <h6>${bird.species}</h6>
+    <h4>Location: ${bird.location}</h4>
+    <h4>User: ${bird.owner}</h4)
     `
   })
   $('#birdspot-display').html(birdsHtml)
@@ -64,8 +88,9 @@ const onBirdSpotError = function () {
 }
 module.exports = {
   onCreateBirdSpotSuccess,
-  onViewUserBirdSpotSuccess,
-  onCreateBirdSpotError,
+  onViewUserBirdSpotsSuccess,
+  onViewAllBirdSpotsSuccess,
   onDestroyBirdSpotSuccess,
+  onCreateBirdSpotError,
   onBirdSpotError
 }

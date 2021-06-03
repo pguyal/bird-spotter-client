@@ -18,7 +18,8 @@ $(() => {
   // Initial hidden BirdSpot elements
   $('#create-birdspot').hide()
   $('#create-birdspot-btn').hide()
-  $('#view-user-birdspot').hide()
+  $('#view-user-birdspots').hide()
+  $('#view-all-birdspots').hide()
 
   // User Auth Events
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -31,6 +32,7 @@ $(() => {
   $('#create-birdspot').on('submit', birdSpotEvents.onCreateBirdSpot)
   $('#create-birdspot-btn').on('click', birdSpotEvents.onCreateBirdSpotBtn)
   $('#create-birdspot-back-btn').on('click', birdSpotEvents.onCreateBirdSpotBackBtn)
-  $('#view-user-birdspot').on('click', birdSpotEvents.onViewUserBirdSpot)
+  $('#view-user-birdspots').on('click', birdSpotEvents.onViewUserBirdSpots)
+  $('#view-all-birdspots').on('click', birdSpotEvents.onViewAllBirdSpots)
   $('#birdspot-display').on('click', '.birdspots-destroy-dynamic', birdSpotEvents.onDynamicDestroyBirdSpots)
 })
