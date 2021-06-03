@@ -17,7 +17,6 @@
 
       <p id="auth-message"></p>
       <p id="bird-spot-message"></p>
-      <p id="bird-spot-delete-message"></p>
 
       <form id="sign-up" class="form auth">
         <h4>Sign Up</h4>
@@ -65,11 +64,13 @@
         <input name="bird[species]" type="text" placeholder="Bird's Scientific Name" required>
         <input name="bird[location]" type="text" placeholder="Location of Bird Sighting" required>
         <input name="bird[image]" type="url" id="imageUrl" placeholder="Image URL of Bird" required>
-        <button type="submit" value="Create Question">Create</button>
+        <button type="submit" value="Create BirdSpot">Create</button>
         <button id="create-birdspot-back-btn">Back</button>
       </form>
 
       <section>
+        <p id="bird-spot-update-message"></p>
+        <p id="bird-spot-delete-message"></p>
         <div id="birdspot-display"></div>
       </section>
 
