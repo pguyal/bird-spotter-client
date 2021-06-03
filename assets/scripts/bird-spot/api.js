@@ -13,9 +13,20 @@ const createBirdSpot = function (formData) {
   })
 }
 
+// INDEX (get) request specifically for user's bird spots
+const viewUserBirdSpot = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/birds',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  createBirdSpot
-  // viewBirdSpot,
+  createBirdSpot,
+  viewUserBirdSpot
   // destroyBirdSpot,
   // updateBirdSpot
 }

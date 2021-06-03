@@ -51,14 +51,22 @@
         <button id="create-birdspot-btn">Create A Bird Sighting</button>
       </div>
 
+      <div>
+        <button id="view-user-birdspot">View Your Bird Sightings</button>
+      </div>
+
       <form id="create-birdspot" class="form">
-        <input name="bird[name]" type="text" placeholder="Enter Bird's Common Name" required>
-        <input name="bird[species]" type="text" placeholder="Enter Bird's Scientific Name" required>
-        <input name="bird[location]" type="text" placeholder="Enter Location of Bird Sighting" required>
-        <input name="bird[image]" type="url" id="imageUrl" placeholder="Enter Image URL of Bird" required>
-        <button type="submit" value="Create Question">Create Bird Sighting</button>
+        <input name="bird[name]" type="text" placeholder="Bird's Common Name" required>
+        <input name="bird[species]" type="text" placeholder="Bird's Scientific Name" required>
+        <input name="bird[location]" type="text" placeholder="Location of Bird Sighting" required>
+        <input name="bird[image]" type="url" id="imageUrl" placeholder="Image URL of Bird" required>
+        <button type="submit" value="Create Question">Create</button>
         <button id="create-birdspot-back-btn">Back</button>
       </form>
+
+      <section>
+        <div id="birdspot-display"></div>
+      </section>
 
     </body>
 </html>

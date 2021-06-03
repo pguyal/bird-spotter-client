@@ -24,6 +24,7 @@ const onSignInSuccess = function (response) {
   $('#change-pw-btn').show()
   $('#sign-out').show()
   $('#create-birdspot-btn').show()
+  $('#view-user-birdspot').show()
 }
 
 const onSignOutSuccess = function () {
@@ -38,6 +39,7 @@ const onSignOutSuccess = function () {
   $('#change-pw-btn').hide()
   $('#sign-out').hide()
   $('#create-birdspot-btn').hide()
+  $('#view-user-birdspot').hide()
   $('#sign-up').show()
   $('#sign-in').show()
 }
@@ -53,6 +55,8 @@ const onChangePasswordSuccess = function () {
   $('#change-password').hide()
   $('#change-pw-btn').show()
   $('#sign-out').show()
+  $('#create-birdspot-btn').show()
+  $('#view-user-birdspot').show()
 }
 
 const onSignUpError = function () {

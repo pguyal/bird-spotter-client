@@ -4,7 +4,7 @@
 // const example = require('./example')
 
 const authEvents = require('./auth/events')
-const birdEvents = require('./bird-spot/events')
+const birdSpotEvents = require('./bird-spot/events')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
@@ -18,6 +18,7 @@ $(() => {
   // Initial hidden BirdSpot elements
   $('#create-birdspot').hide()
   $('#create-birdspot-btn').hide()
+  $('#view-user-birdspot').hide()
 
   // User Auth Events
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -27,7 +28,8 @@ $(() => {
   $('#change-pw-btn').on('click', authEvents.onChangePasswordBtn)
 
   // BirdSpot Events
-  $('#create-birdspot').on('submit', birdEvents.onCreateBirdSpot)
-  $('#create-birdspot-btn').on('click', birdEvents.onCreateBirdSpotBtn)
-  $('#create-birdspot-back-btn').on('click', birdEvents.onCreateBirdSpotBackBtn)
+  $('#create-birdspot').on('submit', birdSpotEvents.onCreateBirdSpot)
+  $('#create-birdspot-btn').on('click', birdSpotEvents.onCreateBirdSpotBtn)
+  $('#create-birdspot-back-btn').on('click', birdSpotEvents.onCreateBirdSpotBackBtn)
+  $('#view-user-birdspot').on('click', birdSpotEvents.onViewUserBirdSpot)
 })
