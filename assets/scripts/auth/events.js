@@ -19,12 +19,26 @@ const onSignIn = function (event) {
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInError)
 }
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.changePassword(formData)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordError)
+}
+
+const onChangePasswordBtn = function (event) {
+  event.preventDefault()
+  $('#change-pw-btn').hide()
+  $('#sign-out').hide()
+  $('#change-password').show()
+}
 
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onChangePassword,
+  onChangePasswordBtn
   // onSignOut,
-  // onChangePassword,
-  // onChangePasswordBtn,
-  // onChangePasswordReturn
 }

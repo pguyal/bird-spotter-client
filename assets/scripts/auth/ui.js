@@ -19,12 +19,23 @@ const onSignInSuccess = function (response) {
     $('#auth-message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
-  $('#create-question-btn').show()
-  $('#view-question').show()
-  $('#change-pw-btn').show()
-  $('#sign-out').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#change-pw-btn').show()
+  $('#sign-out').show()
+}
+
+const onChangePasswordSuccess = function () {
+  $('#auth-message').text('Password changed successfully')
+  $('#auth-message').addClass('success')
+  setTimeout(() => {
+    $('#auth-message').text('')
+    $('#auth-message').removeClass('success')
+  }, 3000)
+  $('form').trigger('reset')
+  $('#change-password').hide()
+  $('#change-pw-btn').show()
+  $('#sign-out').show()
 }
 
 const onSignUpError = function () {
@@ -47,11 +58,22 @@ const onSignInError = function () {
   $('form').trigger('reset')
 }
 
+const onChangePasswordError = function () {
+  $('#auth-message').text('The old password is incorrect, please enter the correct old password.')
+  $('#auth-message').addClass('failure')
+  setTimeout(() => {
+    $('#auth-message').text('')
+    $('#auth-message').removeClass('failure')
+  }, 5000)
+  $('form').trigger('reset')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
   onSignUpError,
-  onSignInError
+  onSignInError,
+  onChangePasswordSuccess,
+  onChangePasswordError
   // onSignOutSuccess,
-  // onChangePasswordSuccess,
 }
