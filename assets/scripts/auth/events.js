@@ -40,6 +40,7 @@ const onChangePasswordBtn = function (event) {
   event.preventDefault()
   $('#change-pw-btn').hide()
   $('#sign-out').hide()
+  $('#create-birdspot-btn').hide()
   $('#change-password').show()
 }
 

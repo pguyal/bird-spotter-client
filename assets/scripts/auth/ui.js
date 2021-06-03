@@ -23,6 +23,7 @@ const onSignInSuccess = function (response) {
   $('#sign-in').hide()
   $('#change-pw-btn').show()
   $('#sign-out').show()
+  $('#create-birdspot-btn').show()
 }
 
 const onSignOutSuccess = function () {
@@ -36,6 +37,7 @@ const onSignOutSuccess = function () {
   $('form').trigger('reset')
   $('#change-pw-btn').hide()
   $('#sign-out').hide()
+  $('#create-birdspot-btn').hide()
   $('#sign-up').show()
   $('#sign-in').show()
 }
