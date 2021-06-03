@@ -4,6 +4,7 @@
 // const example = require('./example')
 
 const authEvents = require('./auth/events')
+const birdEvents = require('./bird-spot/events')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
@@ -13,10 +14,20 @@ $(() => {
   $('#sign-out').hide()
   $('#change-password').hide()
   $('#change-pw-btn').hide()
+
+  // Initial hidden BirdSpot elements
+  $('#create-birdspot').hide()
+  $('#create-birdspot-btn').hide()
+
   // User Auth Events
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#change-pw-btn').on('click', authEvents.onChangePasswordBtn)
+
+  // BirdSpot Events
+  $('#create-birdspot').on('submit', birdEvents.onCreateBirdSpot)
+  $('#create-birdspot-btn').on('click', birdEvents.onCreateBirdSpotBtn)
+  $('#create-birdspot-back-btn').on('click', birdEvents.onCreateBirdSpotBackBtn)
 })

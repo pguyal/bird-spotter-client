@@ -16,6 +16,7 @@
       <h1>Bird Spotter</h1>
 
       <p id="auth-message"></p>
+      <p id="bird-spot-message"></p>
 
       <form id="sign-up" class="form auth">
         <h4>Sign Up</h4>
@@ -45,6 +46,19 @@
       <div>
         <button id="sign-out">Sign Out</button>
       </div>
+
+      <div>
+        <button id="create-birdspot-btn">Create A Bird Sighting</button>
+      </div>
+
+      <form id="create-birdspot" class="form">
+        <input name="bird[name]" type="text" placeholder="Enter Bird's Common Name" required>
+        <input name="bird[species]" type="text" placeholder="Enter Bird's Scientific Name" required>
+        <input name="bird[location]" type="text" placeholder="Enter Location of Bird Sighting" required>
+        <input name="bird[image]" type="url" id="imageUrl" placeholder="Enter Image URL of Bird" required>
+        <button type="submit" value="Create Question">Create Bird Sighting</button>
+        <button id="create-birdspot-back-btn">Back</button>
+      </form>
 
     </body>
 </html>
