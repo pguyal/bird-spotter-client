@@ -11,16 +11,6 @@ const onCreateBirdSpotSuccess = function (response) {
   $('form').trigger('reset')
 }
 
-const onCreateBirdSpotError = function () {
-  $('#bird-spot-message').text('Please enter information in all fields correctly and try again')
-  $('#bird-spot-message').addClass('failure')
-  setTimeout(() => {
-    $('#bird-spot-message').text('')
-    $('#bird-spot-message').removeClass('failure')
-  }, 5000)
-  $('form').trigger('reset')
-}
-
 const onViewUserBirdSpotSuccess = function (response) {
   $('#bird-spot-message').text('Here are your created Bird Sightings:')
   $('#create-birdspot-btn').hide()
@@ -31,16 +21,39 @@ const onViewUserBirdSpotSuccess = function (response) {
   let birdsHtml = ''
   birds.forEach(bird => {
     birdsHtml += `
+    <hr>
     <img src="${bird.image}" alt ="${bird.name}" style="width:150px" />
     <h4>${bird.name}</h4>
     <h6>${bird.species}</p>
     <h4>Location: ${bird.location}</p>
+    <button class='birdspots-destroy-dynamic' data-id=${bird._id}>
+    Delete
+    </button>
     `
   })
   $('#birdspot-display').html(birdsHtml)
 }
 
-const onViewUserBirdSpotError = function () {
+const onDestroyBirdSpotSuccess = function () {
+  $('#bird-spot-delete-message').text('Bird Sighting deleted successfully')
+  $('#bird-spot-delete-message').addClass('success')
+  setTimeout(() => {
+    $('#bird-spot-delete-message').text('')
+    $('#bird-spot-delete-message').removeClass('success')
+  }, 5000)
+}
+
+const onCreateBirdSpotError = function () {
+  $('#bird-spot-message').text('Please enter information in all fields correctly and try again')
+  $('#bird-spot-message').addClass('failure')
+  setTimeout(() => {
+    $('#bird-spot-message').text('')
+    $('#bird-spot-message').removeClass('failure')
+  }, 5000)
+  $('form').trigger('reset')
+}
+
+const onBirdSpotError = function () {
   $('#bird-spot-message').text('Something went wrong, please try again.')
   $('#bird-spot-message').addClass('failure')
   setTimeout(() => {
@@ -53,5 +66,6 @@ module.exports = {
   onCreateBirdSpotSuccess,
   onViewUserBirdSpotSuccess,
   onCreateBirdSpotError,
-  onViewUserBirdSpotError
+  onDestroyBirdSpotSuccess,
+  onBirdSpotError
 }

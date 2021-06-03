@@ -24,9 +24,20 @@ const viewUserBirdSpot = function () {
   })
 }
 
+// DESTROY (delete) request
+const destroyBirdSpot = function (id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/birds/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createBirdSpot,
-  viewUserBirdSpot
-  // destroyBirdSpot,
+  viewUserBirdSpot,
+  destroyBirdSpot
   // updateBirdSpot
 }

@@ -33,11 +33,22 @@ const onViewUserBirdSpot = function () {
   $('#birdspot-display').show()
   api.viewUserBirdSpot()
     .then(ui.onViewUserBirdSpotSuccess)
-    .catch(ui.onViewUserBirdSpotError)
+    .catch(ui.onBirdSpotError)
 }
+
+const onDynamicDestroyBirdSpots = function (event) {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  api.destroyBirdSpot(id)
+    .then(onViewUserBirdSpot)
+    .then(ui.onDestroyBirdSpotSuccess)
+    .catch(ui.onBirdSpotError)
+}
+
 module.exports = {
   onCreateBirdSpotBtn,
   onCreateBirdSpot,
   onCreateBirdSpotBackBtn,
-  onViewUserBirdSpot
+  onViewUserBirdSpot,
+  onDynamicDestroyBirdSpots
 }

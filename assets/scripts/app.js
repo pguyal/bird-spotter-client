@@ -32,4 +32,5 @@ $(() => {
   $('#create-birdspot-btn').on('click', birdSpotEvents.onCreateBirdSpotBtn)
   $('#create-birdspot-back-btn').on('click', birdSpotEvents.onCreateBirdSpotBackBtn)
   $('#view-user-birdspot').on('click', birdSpotEvents.onViewUserBirdSpot)
+  $('#birdspot-display').on('click', '.birdspots-destroy-dynamic', birdSpotEvents.onDynamicDestroyBirdSpots)
 })
