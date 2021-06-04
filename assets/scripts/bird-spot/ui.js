@@ -34,10 +34,10 @@ const onViewUserBirdSpotsSuccess = function (response) {
     Delete
     </button>
     <form class="update-birdspot-dynamic" data-id=${bird._id}>
-      <input name="bird[name]" type="text" placeholder="${bird.name}" required>
-      <input name="bird[species]" type="text" placeholder="${bird.species}" required>
-      <input name="bird[location]" type="text" placeholder="${bird.location}" required>
-      <input name="bird[image]" type="url" class="birdImageUrl" placeholder=${bird.image} required>
+      <input name="bird[name]" type="text" placeholder="${bird.name}">
+      <input name="bird[species]" type="text" placeholder="${bird.species}">
+      <input name="bird[location]" type="text" placeholder="${bird.location}">
+      <input name="bird[image]" type="url" class="birdImageUrl" placeholder=${bird.image}>
       <button type="submit" value="Update BirdSpot">Update</button>
       <button class="update-birdspot-back-btn">Back</button>
     </form>
