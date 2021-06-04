@@ -45,6 +45,7 @@ const onViewUserBirdSpotsSuccess = function (response) {
   })
   $('#birdspot-display').html(birdsHtml)
   $('.update-birdspot-dynamic').hide()
+  $('form').trigger('reset')
 }
 
 // Index ALL Success Message
@@ -69,6 +70,7 @@ const onViewAllBirdSpotsSuccess = function (response) {
     `
   })
   $('#birdspot-display').html(birdsHtml)
+  $('form').trigger('reset')
 }
 
 // Destroy Success Message
@@ -79,6 +81,7 @@ const onDestroyBirdSpotSuccess = function () {
     $('#bird-spot-delete-message').text('')
     $('#bird-spot-delete-message').removeClass('success')
   }, 5000)
+  $('form').trigger('reset')
 }
 
 // Update Success Message
@@ -89,6 +92,7 @@ const onUpdateBirdSpotSuccess = function () {
     $('#bird-spot-update-message').text('')
     $('#bird-spot-update-message').removeClass('success')
   }, 3000)
+  $('form').trigger('reset')
 }
 
 // Create Failure Message
