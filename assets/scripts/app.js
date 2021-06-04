@@ -20,6 +20,7 @@ $(() => {
   $('#create-birdspot-btn').hide()
   $('#view-user-birdspots').hide()
   $('#view-all-birdspots').hide()
+  $('#home').hide()
 
   // User Auth Events
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -38,4 +39,5 @@ $(() => {
   $('#birdspot-display').on('submit', '.update-birdspot-dynamic', birdSpotEvents.onDynamicUpdateBirdSpots)
   $('#birdspot-display').on('click', '.update-birdspot-btn', birdSpotEvents.onUpdateBirdSpotsBtn)
   $('#birdspot-display').on('click', '.update-birdspot-back-btn', birdSpotEvents.onUpdateBirdSpotsBackBtn)
+  $('#home').on('click', birdSpotEvents.onHome)
 })

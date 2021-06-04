@@ -2,6 +2,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 
+// Button that leads to create birdspot form
 const onCreateBirdSpotBtn = function (event) {
   event.preventDefault()
   $('#change-pw-btn').hide()
@@ -12,6 +13,7 @@ const onCreateBirdSpotBtn = function (event) {
   $('#create-birdspot').show()
 }
 
+// Create birdspot form w/ api call
 const onCreateBirdSpot = function (event) {
   event.preventDefault()
   const form = event.target
@@ -21,6 +23,7 @@ const onCreateBirdSpot = function (event) {
     .catch(ui.onBirdSpotError)
 }
 
+// Button that leads the user back to main page
 const onCreateBirdSpotBackBtn = function (event) {
   event.preventDefault()
   $('#create-birdspot').hide()
@@ -81,6 +84,18 @@ const onUpdateBirdSpotsBackBtn = function (event) {
   $('.update-birdspot-btn').show()
 }
 
+const onHome = function (event) {
+  event.preventDefault()
+  $('#change-password').hide()
+  $('#create-birdspot').hide()
+  $('#birdspot-display').text('')
+  $('#bird-spot-message').text('')
+  $('#change-pw-btn').show()
+  $('#sign-out').show()
+  $('#create-birdspot-btn').show()
+  $('#view-user-birdspots').show()
+  $('#view-all-birdspots').show()
+}
 module.exports = {
   onCreateBirdSpotBtn,
   onCreateBirdSpot,
@@ -90,5 +105,6 @@ module.exports = {
   onDynamicDestroyBirdSpots,
   onUpdateBirdSpotsBtn,
   onDynamicUpdateBirdSpots,
-  onUpdateBirdSpotsBackBtn
+  onUpdateBirdSpotsBackBtn,
+  onHome
 }

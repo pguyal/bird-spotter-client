@@ -19,7 +19,7 @@ const onViewUserBirdSpotsSuccess = function (response) {
   $('#sign-out').hide()
   $('#change-pw-btn').hide()
   $('#view-user-birdspots').hide()
-  $('#view-all-birdspots').hide()
+  $('#view-all-birdspots').show()
   const birds = response.birds
   let birdsHtml = ''
   birds.forEach(bird => {
@@ -54,7 +54,7 @@ const onViewAllBirdSpotsSuccess = function (response) {
   $('#sign-out').hide()
   $('#change-pw-btn').hide()
   $('#view-all-birdspots').hide()
-  $('#view-user-birdspots').hide()
+  $('#view-user-birdspots').show()
   const birds = response.birds
   let birdsHtml = ''
   birds.forEach(bird => {
