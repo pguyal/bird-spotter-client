@@ -56,9 +56,11 @@ const onDynamicDestroyBirdSpots = function (event) {
 
 const onUpdateBirdSpotsBtn = function (event) {
   event.preventDefault()
+  const id = $(event.target).data('id')
+  const formToShow = $(`.update-birdspot-dynamic[data-id=${id}]`)
   $('.destroy-birdspots-dynamic').hide()
   $('.update-birdspot-btn').hide()
-  $('.update-birdspot-dynamic').show()
+  formToShow.show()
 }
 
 const onDynamicUpdateBirdSpots = function (event) {

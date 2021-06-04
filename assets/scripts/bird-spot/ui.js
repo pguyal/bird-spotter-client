@@ -25,13 +25,13 @@ const onViewUserBirdSpotsSuccess = function (response) {
   birds.forEach(bird => {
     birdsHtml += `
     <hr>
-    <img src="${bird.image}" alt ="${bird.name}" style="width:150px" />
+    <img src="${bird.image}" alt ="${bird.species}" style="width:150px" />
     <h4>${bird.name}</h4>
     <h6>${bird.species}</p>
     <h4>Location: ${bird.location}</p>
-    <button class="update-birdspot-btn">Edit</button>
+    <button class="update-birdspot-btn" data-id=${bird._id}>Edit</button>
     <button class='destroy-birdspots-dynamic' data-id=${bird._id}>
-    Delete
+      Delete
     </button>
     <form class="update-birdspot-dynamic" data-id=${bird._id}>
       <input name="bird[name]" type="text" placeholder="${bird.name}">
@@ -65,7 +65,7 @@ const onViewAllBirdSpotsSuccess = function (response) {
     <h4>${bird.name}</h4>
     <h6>${bird.species}</h6>
     <h4>Location: ${bird.location}</h4>
-    <h4>User: ${bird.owner}</h4)
+    <h4>User: ${bird.owner}</h4>
     `
   })
   $('#birdspot-display').html(birdsHtml)
