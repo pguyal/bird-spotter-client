@@ -8,6 +8,7 @@ const onCreateBirdSpotBtn = function (event) {
   $('#sign-out').hide()
   $('#create-birdspot-btn').hide()
   $('#view-user-birdspots').hide()
+  $('#view-all-birdspots').hide()
   $('#create-birdspot').show()
 }
 
@@ -25,6 +26,7 @@ const onCreateBirdSpotBackBtn = function (event) {
   $('#create-birdspot').hide()
   $('#create-birdspot-btn').show()
   $('#view-user-birdspots').show()
+  $('#view-all-birdspots').show()
   $('#change-pw-btn').show()
   $('#sign-out').show()
 }
@@ -52,11 +54,41 @@ const onDynamicDestroyBirdSpots = function (event) {
     .catch(ui.onBirdSpotError)
 }
 
+const onUpdateBirdSpotsBtn = function (event) {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  const formToShow = $(`.update-birdspot-dynamic[data-id=${id}]`)
+  $('.destroy-birdspots-dynamic').hide()
+  $('.update-birdspot-btn').hide()
+  formToShow.show()
+}
+
+const onDynamicUpdateBirdSpots = function (event) {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  const form = event.target
+  const formData = getFormFields(form)
+  api.updateBirdSpot(id, formData)
+    .then(onViewUserBirdSpots)
+    .then(ui.onUpdateBirdSpotSuccess)
+    .catch(ui.onUpdateBirdSpotError)
+}
+
+const onUpdateBirdSpotsBackBtn = function (event) {
+  event.preventDefault()
+  $('.update-birdspot-dynamic').hide()
+  $('.destroy-birdspots-dynamic').show()
+  $('.update-birdspot-btn').show()
+}
+
 module.exports = {
   onCreateBirdSpotBtn,
   onCreateBirdSpot,
   onCreateBirdSpotBackBtn,
   onViewUserBirdSpots,
   onViewAllBirdSpots,
-  onDynamicDestroyBirdSpots
+  onDynamicDestroyBirdSpots,
+  onUpdateBirdSpotsBtn,
+  onDynamicUpdateBirdSpots,
+  onUpdateBirdSpotsBackBtn
 }

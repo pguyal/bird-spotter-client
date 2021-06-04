@@ -46,10 +46,21 @@ const destroyBirdSpot = function (id) {
   })
 }
 
+const updateBirdSpot = function (id, formData) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/birds/' + id,
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createBirdSpot,
   viewUserBirdSpots,
   viewAllBirdSpots,
-  destroyBirdSpot
-  // updateBirdSpot
+  destroyBirdSpot,
+  updateBirdSpot
 }
