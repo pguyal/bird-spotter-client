@@ -13,7 +13,7 @@ const onCreateBirdSpotBtn = function (event) {
   $('#create-birdspot').show()
 }
 
-// Create birdspot form w/ api call
+// Create (post) birdspot form w/ api call
 const onCreateBirdSpot = function (event) {
   event.preventDefault()
   const form = event.target
@@ -34,6 +34,7 @@ const onCreateBirdSpotBackBtn = function (event) {
   $('#sign-out').show()
 }
 
+// Button that shows user an index of their own birdspots
 const onViewUserBirdSpots = function () {
   $('#birdspot-display').show()
   api.viewUserBirdSpots()
@@ -41,6 +42,7 @@ const onViewUserBirdSpots = function () {
     .catch(ui.onBirdSpotError)
 }
 
+// Button that shows user an index of ALL user birdspots
 const onViewAllBirdSpots = function () {
   $('#birdspot-display').show()
   api.viewAllBirdSpots()
@@ -48,6 +50,7 @@ const onViewAllBirdSpots = function () {
     .catch(ui.onBirdSpotError)
 }
 
+// Button that deletes the birdspot w/ api call
 const onDynamicDestroyBirdSpots = function (event) {
   event.preventDefault()
   const id = $(event.target).data('id')
@@ -57,15 +60,19 @@ const onDynamicDestroyBirdSpots = function (event) {
     .catch(ui.onBirdSpotError)
 }
 
+// Button that leads to birdspot update form
 const onUpdateBirdSpotsBtn = function (event) {
   event.preventDefault()
   const id = $(event.target).data('id')
+  // Selects the form of the specific birdspot from the button pressed
   const formToShow = $(`.update-birdspot-dynamic[data-id=${id}]`)
   $('.destroy-birdspots-dynamic').hide()
   $('.update-birdspot-btn').hide()
+  // Only displays the form of the specific birdspot to show update form
   formToShow.show()
 }
 
+// Update (patch) birdspot form w/ api call
 const onDynamicUpdateBirdSpots = function (event) {
   event.preventDefault()
   const id = $(event.target).data('id')
@@ -77,6 +84,7 @@ const onDynamicUpdateBirdSpots = function (event) {
     .catch(ui.onUpdateBirdSpotError)
 }
 
+// Button that returns out of the birdspot update form back to index
 const onUpdateBirdSpotsBackBtn = function (event) {
   event.preventDefault()
   $('.update-birdspot-dynamic').hide()
@@ -84,6 +92,7 @@ const onUpdateBirdSpotsBackBtn = function (event) {
   $('.update-birdspot-btn').show()
 }
 
+// Universal home button that returns user to main page
 const onHome = function (event) {
   event.preventDefault()
   $('#change-password').hide()

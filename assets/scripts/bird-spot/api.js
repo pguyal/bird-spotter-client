@@ -46,6 +46,7 @@ const destroyBirdSpot = function (id) {
   })
 }
 
+// Update (patch) request
 const updateBirdSpot = function (id, formData) {
   return $.ajax({
     method: 'PATCH',
