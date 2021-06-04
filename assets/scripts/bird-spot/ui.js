@@ -66,7 +66,7 @@ const onViewAllBirdSpotsSuccess = function (response) {
     <h4>${bird.name}</h4>
     <h6>${bird.species}</h6>
     <h4>Location: ${bird.location}</h4>
-    <h4>User: ${bird.owner}</h4>
+    <h4>User: ${bird.owner.email}</h4>
     `
   })
   $('#birdspot-display').html(birdsHtml)
