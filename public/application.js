@@ -16807,6 +16807,7 @@ var onSignOutSuccess = function onSignOutSuccess() {
   $('#create-birdspot-btn').hide();
   $('#view-user-birdspots').hide();
   $('#view-all-birdspots').hide();
+  $('#bird-spot-message').text('');
   $('#sign-up').show();
   $('#sign-in').show();
 };
