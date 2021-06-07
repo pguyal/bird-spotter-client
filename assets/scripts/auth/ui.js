@@ -21,9 +21,12 @@ const onSignInSuccess = function (response) {
   $('form').trigger('reset')
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#home').show()
   $('#change-pw-btn').show()
   $('#sign-out').show()
   $('#create-birdspot-btn').show()
+  $('#view-user-birdspots').show()
+  $('#view-all-birdspots').show()
 }
 
 const onSignOutSuccess = function () {
@@ -35,9 +38,13 @@ const onSignOutSuccess = function () {
     $('#auth-message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
+  $('#home').hide()
   $('#change-pw-btn').hide()
+  $('#change-password').hide()
   $('#sign-out').hide()
   $('#create-birdspot-btn').hide()
+  $('#view-user-birdspots').hide()
+  $('#view-all-birdspots').hide()
   $('#sign-up').show()
   $('#sign-in').show()
 }
@@ -51,8 +58,9 @@ const onChangePasswordSuccess = function () {
   }, 5000)
   $('form').trigger('reset')
   $('#change-password').hide()
-  $('#change-pw-btn').show()
-  $('#sign-out').show()
+  $('#create-birdspot-btn').show()
+  $('#view-user-birdspots').show()
+  $('#view-all-birdspots').show()
 }
 
 const onSignUpError = function () {
