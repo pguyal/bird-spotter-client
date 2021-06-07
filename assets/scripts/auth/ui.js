@@ -43,6 +43,7 @@ const onSignOutSuccess = function () {
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#create-birdspot-btn').hide()
+  $('#create-birdspot').hide()
   $('#view-user-birdspots').hide()
   $('#view-all-birdspots').hide()
   $('#bird-spot-message').text('')
