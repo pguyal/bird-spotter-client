@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <head>
       <title>Bird Spotter</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,71 +12,116 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
 
-      <h1>Bird Spotter</h1>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="./public/birdspotter.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Bird Spotter v1
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" id="home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="change-pw-btn">Change Password</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="sign-out">Sign out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-      <div>
-        <button id="home">Home</button>
-      </div>
+      <p id="auth-message" class="text-center msg"></p>
+      <p id="bird-spot-message" class="text-center msg"></p>
 
-      <div>
-        <button id="change-pw-btn">Change Password</button>
-      </div>
-
-      <div>
-        <button id="sign-out">Sign Out</button>
-      </div>
-
-      <p id="auth-message"></p>
-      <p id="bird-spot-message"></p>
-
-      <form id="sign-up" class="form auth">
+      <form id="sign-up" class="col-sm-10 col-md-8 mx-auto mt-5">
         <h4>Sign Up</h4>
-        <input name="credentials[email]" type="email" placeholder="Enter Email" required>
-        <input name="credentials[password]" type="password" placeholder="Enter Password" required>
-        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" required>
-        <input type="submit" value="Sign Up"/>
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input name="credentials[email]" type="email" class="form-control" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input name="credentials[password]" type="password" class="form-control" placeholder=" Enter password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmInputPassword">Confirm password</label>
+          <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Enter same password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
-      <form id="sign-in" class="form auth">
+      <form id="sign-in" class="col-sm-10 col-md-8 mx-auto mt-5">
         <h4>Sign In</h4>
-        <input name="credentials[email]" type="email" placeholder="Enter Email" required>
-        <input name="credentials[password]" type="password" placeholder="Enter Password" required>
-        <input type="submit" value="Sign In"/>
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input name="credentials[email]" type="email" class="form-control" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input name="credentials[password]" type="password" class="form-control" placeholder=" Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
-      <form id="change-password" class="form">
-        <input class="pw-input" name="passwords[old]" type="password" placeholder="Enter Old Password" required>
-        <input class="pw-input" name="passwords[new]" type="password" placeholder="Enter New Password" required>
-        <button class="change-password" type="submit" value="Change Password">Change Password</button>
+      <form id="change-password" class="col-sm-10 col-md-8 mx-auto mt-5">
+        <div class="form-group">
+          <label for="inputOldPassword">Password</label>
+          <input name="passwords[old]" type="password" class="form-control" placeholder="Old Password" required>
+        </div>
+        <div class="form-group">
+          <label for="inputNewPassword">Password</label>
+          <input name="passwords[new]" type="password" class="form-control" placeholder="Old Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
-      <div>
-        <button id="create-birdspot-btn">Create A Bird Sighting</button>
-      </div>
+      <section class= "text-center birdspot-btns">
+        <div>
+          <button type="button" class="btn btn-primary birdspot-btn" id="create-birdspot-btn">Create A Bird Sighting</button>
+        </div>
 
-      <div>
-        <button id="view-user-birdspots">View Your Bird Sightings</button>
-      </div>
+        <div>
+          <button type="button" class="btn btn-primary birdspot-btn" id="view-user-birdspots">View Your Bird Sightings</button>
+        </div>
 
-      <div>
-        <button id="view-all-birdspots">View All Bird Sightings</button>
-      </div>
+        <div>
+          <button type="button" class="btn btn-primary birdspot-btn" id="view-all-birdspots">View All Bird Sightings</button>
+        </div>
+      </section>
 
-      <form id="create-birdspot" class="form">
-        <input name="bird[name]" type="text" placeholder="Bird's Common Name" required>
-        <input name="bird[species]" type="text" placeholder="Bird's Scientific Name" required>
-        <input name="bird[location]" type="text" placeholder="Location of Bird Sighting" required>
-        <input name="bird[image]" type="url" id="imageUrl" placeholder="Image URL of Bird" required>
-        <button type="submit" value="Create BirdSpot">Create</button>
-        <button id="create-birdspot-back-btn">Back</button>
+      <form id="create-birdspot" class="col-sm-10 col-md-8 mx-auto mt-5">
+        <div class="form-group">
+          <label for="inputBirdName">Bird's Common Name</label>
+          <input name="bird[name]" type="text" class="form-control" placeholder="Enter bird's common name" required>
+        </div>
+        <div class="form-group">
+          <label for="inputBirdSciName">Bird's Scientific Name</label>
+          <input name="bird[species]" type="text" class="form-control" placeholder="Enter bird's scientific name" required>
+        </div>
+        <div class="form-group">
+          <label for="inputBirdLocation">Location of Bird Sighting</label>
+          <input name="bird[location]" type="text" class="form-control" placeholder="Enter location with city" required>
+        </div>
+        <div class="form-group">
+          <label for="inputBirdImg">Image of Bird</label>
+          <input name="bird[image]" type="url" id="imageUrl" class="form-control" placeholder="Enter image URL of bird" required>
+        </div>
+        <button type="submit" value="Create BirdSpot" class="btn btn-primary">Create</button>
+        <button id="create-birdspot-back-btn" class="btn btn-primary">Back</button>
       </form>
 
       <section>
-        <p id="bird-spot-update-message"></p>
-        <p id="bird-spot-delete-message"></p>
-        <div id="birdspot-display"></div>
+        <p id="bird-spot-update-message" class="text-center msg"></p>
+        <p id="bird-spot-delete-message" class="text-center msg"></p>
+        <div id="birdspot-display" class="text-center msg"></div>
       </section>
 
     </body>

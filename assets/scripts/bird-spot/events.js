@@ -5,8 +5,8 @@ const getFormFields = require('../../../lib/get-form-fields')
 // Button that leads to create birdspot form
 const onCreateBirdSpotBtn = function (event) {
   event.preventDefault()
-  $('#change-pw-btn').hide()
-  $('#sign-out').hide()
+  $('#bird-spot-message').text('')
+  $('#auth-message').text('')
   $('#create-birdspot-btn').hide()
   $('#view-user-birdspots').hide()
   $('#view-all-birdspots').hide()
@@ -26,12 +26,12 @@ const onCreateBirdSpot = function (event) {
 // Button that leads the user back to main page
 const onCreateBirdSpotBackBtn = function (event) {
   event.preventDefault()
+  $('#bird-spot-message').text('')
+  $('#auth-message').text('')
   $('#create-birdspot').hide()
   $('#create-birdspot-btn').show()
   $('#view-user-birdspots').show()
   $('#view-all-birdspots').show()
-  $('#change-pw-btn').show()
-  $('#sign-out').show()
 }
 
 // Button that shows user an index of their own birdspots
@@ -87,6 +87,8 @@ const onDynamicUpdateBirdSpots = function (event) {
 // Button that returns out of the birdspot update form back to index
 const onUpdateBirdSpotsBackBtn = function (event) {
   event.preventDefault()
+  $('#bird-spot-message').text('')
+  $('#auth-message').text('')
   $('.update-birdspot-dynamic').hide()
   $('.destroy-birdspots-dynamic').show()
   $('.update-birdspot-btn').show()
@@ -95,12 +97,10 @@ const onUpdateBirdSpotsBackBtn = function (event) {
 // Universal home button that returns user to main page
 const onHome = function (event) {
   event.preventDefault()
-  $('#change-password').hide()
-  $('#create-birdspot').hide()
   $('#birdspot-display').text('')
   $('#bird-spot-message').text('')
-  $('#change-pw-btn').show()
-  $('#sign-out').show()
+  $('#change-password').hide()
+  $('#create-birdspot').hide()
   $('#create-birdspot-btn').show()
   $('#view-user-birdspots').show()
   $('#view-all-birdspots').show()
